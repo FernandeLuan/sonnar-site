@@ -1,9 +1,8 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// GitHub Pages publica este projeto no caminho /sonnar-site/.
-// Se futuramente houver domínio próprio na raiz, altere base para '/'.
+// Caminhos relativos para carregar os assets corretamente no GitHub Pages.
 export default defineConfig({
   plugins: [react()],
-  base: '/sonnar-site/',
+  base: './',
 })
