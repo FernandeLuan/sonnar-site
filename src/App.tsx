@@ -1,4 +1,5 @@
-import { ArrowRight, Check, Crosshair, Droplets, MapPin, MessageCircle, ScanSearch, Waves } from 'lucide-react'
+import { useEffect } from 'react'
+import { ArrowRight, Check, Droplets, MapPin, MessageCircle, ScanSearch, Waves } from 'lucide-react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 
@@ -11,6 +12,21 @@ const services = [
 ]
 
 function App() {
+  useEffect(() => {
+    const elements = document.querySelectorAll('.service-card, .process-intro, .step, .contact-inner')
+    elements.forEach((element) => element.classList.add('reveal'))
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        }
+      })
+    }, { threshold: 0.14 })
+    elements.forEach((element) => observer.observe(element))
+    return () => observer.disconnect()
+  }, [])
+
   return <div className="site-shell">
     <Header />
     <main>
