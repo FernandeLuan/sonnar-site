@@ -5,8 +5,8 @@ Site institucional responsivo da SONNAR, com foco em apresentar os serviços de 
 ## Stack
 - React + TypeScript
 - Vite
-- CSS responsivo
 - Lucide React
+- CSS modular por componente/seção (diretriz de arquitetura)
 
 ## Desenvolvimento local
 ```bash
@@ -20,20 +20,35 @@ npm run build
 npm run preview
 ```
 
-## Publicação recomendada
-Conecte este repositório à Vercel e use as configurações padrão do Vite:
-- Build command: `npm run build`
-- Output directory: `dist`
-- Install command: `npm install`
+## Publicação — GitHub Pages
+O projeto está configurado para publicar automaticamente no GitHub Pages por GitHub Actions.
+
+1. No GitHub, abra **Settings → Pages**.
+2. Em **Build and deployment → Source**, selecione **GitHub Actions**.
+3. Faça push na branch `main` ou execute manualmente o workflow **Deploy to GitHub Pages** na aba Actions.
+4. Após o workflow concluir, o endereço público ficará disponível na área **Settings → Pages**.
+
+URL esperada do projeto: https://fernandeluan.github.io/sonnar-site/
+
+O Vite está configurado com `base: '/sonnar-site/'`, necessário para publicação em um repositório de projeto no GitHub Pages. Se for usado um domínio próprio apontando para a raiz, essa configuração deverá ser ajustada.
+
+## Diretrizes de arquitetura
+- Componentes reutilizáveis em `src/components/`.
+- Seções de página isoladas em `src/sections/`.
+- Composição de páginas em `src/pages/`.
+- Conteúdo e configurações fora da camada visual em `src/data/` e `src/types/`.
+- Estilos globais limitados a reset, tokens, tipografia e regras base.
+- Estilos de cada componente/seção mantidos junto ao componente, preferencialmente com CSS Modules (`.module.css`).
+- Evitar componentes monolíticos, CSS global por tela e lógica de conteúdo misturada à apresentação.
 
 ## Checklist antes de divulgar
 - [ ] Confirmar que o número +55 47 98890-1278 é o WhatsApp comercial correto.
 - [ ] Confirmar regiões e municípios efetivamente atendidos.
-- [ ] Substituir as imagens ilustrativas por fotografias autorizadas da operação.
-- [ ] Validar os serviços, métodos e entregáveis descritos com o responsável técnico.
+- [ ] Substituir imagens ilustrativas por fotografias autorizadas da operação.
+- [ ] Validar serviços, métodos e entregáveis com o responsável técnico.
 - [ ] Adicionar avaliações reais de clientes, com autorização.
 - [ ] Configurar domínio próprio, Google Search Console e Perfil da Empresa no Google.
 - [ ] Revisar política de privacidade e dados de identificação da empresa.
 
 ## Observação
-O conteúdo inicial foi estruturado com base nas informações e capturas de tela fornecidas. Imagens externas são ilustrativas e os dados comerciais precisam ser validados antes da publicação.
+As imagens atuais são ilustrativas e os dados comerciais precisam ser validados antes da publicação.
