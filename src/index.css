@@ -40,3 +40,11 @@
  .process-grid{gap:30px}
  .contact-section{padding:50px 0}
 }
+
+
+/* Entrada progressiva dos elementos conforme entram na área visível. */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.service-card.reveal:nth-child(2),.step.reveal:nth-child(2){transition-delay:.10s}
+.service-card.reveal:nth-child(3),.step.reveal:nth-child(3){transition-delay:.20s}
+@media(prefers-reduced-motion:reduce){.reveal,.reveal.is-visible{opacity:1;transform:none;transition:none}}
