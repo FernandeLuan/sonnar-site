@@ -1,5 +1,6 @@
-import { useState } from 'react'
-import { ArrowDown, ArrowRight, Check, Crosshair, Droplets, Instagram, Mail, MapPin, Menu, MessageCircle, Phone, ScanSearch, ShieldCheck, Waves, X, Camera, ClipboardCheck } from 'lucide-react'
+import { ArrowDown, ArrowRight, Check, Crosshair, Droplets, MapPin, ScanSearch, ShieldCheck, Waves, Camera, ClipboardCheck } from 'lucide-react'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 
 const WHATSAPP = 'https://wa.me/5547988901278'
 const services = [
@@ -19,19 +20,8 @@ function Brand() {
 }
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const closeMenu = () => setMenuOpen(false)
-  const nav = [['Início','#inicio'],['Quando chamar','#problemas'],['Como funciona','#processo'],['A SONNAR','#sobre'],['Contato','#contato']]
-
   return <div className="site-shell">
-    <header className="header">
-      <div className="container header-inner"><Brand/>
-        <nav className="desktop-nav">{nav.map(([label,href])=><a key={label} href={href}>{label}</a>)}</nav>
-        <a className="header-cta" href={WHATSAPP} target="_blank" rel="noreferrer"><MessageCircle size={17}/> Fale conosco</a>
-        <button className="menu-toggle" onClick={()=>setMenuOpen(!menuOpen)} aria-label={menuOpen?'Fechar menu':'Abrir menu'}>{menuOpen?<X/>:<Menu/>}</button>
-      </div>
-      {menuOpen && <nav className="mobile-nav">{nav.map(([label,href])=><a key={label} href={href} onClick={closeMenu}>{label}<ArrowRight size={16}/></a>)}<a className="mobile-whats" href={WHATSAPP} target="_blank" rel="noreferrer">Falar pelo WhatsApp</a></nav>}
-    </header>
+    <Header />
 
     <main>
       <section className="hero" id="inicio">
@@ -81,11 +71,9 @@ function App() {
       <section className="contact-section" id="contato"><div className="container contact-inner"><div><div className="eyebrow"><span/> FALE COM A SONNAR</div><h2>Vamos entender o que está acontecendo?</h2><p>Conte para nossa equipe o que você percebeu. Vamos orientar os próximos passos.</p></div><a className="button button-primary contact-button" href={WHATSAPP} target="_blank" rel="noreferrer"><MessageCircle size={20}/> Chamar no WhatsApp <ArrowRight size={18}/></a></div></section>
     </main>
 
-    <footer className="footer"><div className="container"><div className="footer-main"><div><Brand/><p>Inspeção técnica e localização de vazamentos.</p><span className="footer-region"><MapPin size={15}/> Blumenau, Vale do Itajaí e litoral</span></div><div className="footer-links"><b>CONTATO</b><a href="tel:+5547988901278"><Phone size={16}/> (47) 98890-1278</a><a href="mailto:sonnar.vazamentos@gmail.com"><Mail size={16}/> sonnar.vazamentos@gmail.com</a><a href="https://instagram.com/sonnar.vazamentos" target="_blank" rel="noreferrer"><Instagram size={16}/> @sonnar.vazamentos</a></div><div className="footer-links"><b>NAVEGAÇÃO</b>{nav.map(([label,href])=><a key={label} href={href}>{label}</a>)}</div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} SONNAR Caça Vazamentos. Todos os direitos reservados.</span><span>Feito para encontrar soluções.</span></div></div></footer>
-    <a className="floating-whats" href={WHATSAPP} target="_blank" rel="noreferrer" aria-label="Falar com a SONNAR pelo WhatsApp"><MessageCircle size={25}/></a>
+    <Footer />
   </div>
 }
 
-function ArrowUpRightIcon() { return <ArrowRight size={19}/> }
 
 export default App
