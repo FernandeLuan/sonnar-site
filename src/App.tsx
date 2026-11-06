@@ -1,4 +1,4 @@
-import { ArrowDown, ArrowRight, Check, Crosshair, Droplets, MapPin, ScanSearch, ShieldCheck, Waves, Camera, ClipboardCheck } from 'lucide-react'
+import { ArrowDown, ArrowRight, Check, Crosshair, Droplets, MapPin, ScanSearch, ShieldCheck, Waves, Camera, ClipboardCheck, MessageCircle } from 'lucide-react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 
@@ -14,10 +14,6 @@ const steps = [
   { number: '02', title: 'Realizamos a inspeção', text: 'Utilizamos métodos e equipamentos adequados para investigar a ocorrência.' },
   { number: '03', title: 'Entregamos o diagnóstico', text: 'Você recebe os resultados, registros e orientação para direcionar o reparo.' },
 ]
-
-function Brand() {
-  return <a className="brand" href="#inicio" aria-label="SONNAR - início"><span className="brand-mark"><Droplets size={31} strokeWidth={1.8}/></span><span><b>SONNAR</b><small>CAÇA VAZAMENTOS</small></span></a>
-}
 
 function App() {
   return <div className="site-shell">
@@ -75,5 +71,6 @@ function App() {
   </div>
 }
 
+function ArrowUpRightIcon() { return <ArrowRight size={19}/> }
 
 export default App
