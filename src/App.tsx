@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowDown, ArrowRight, Check, ChevronDown, Crosshair, Droplets, Instagram, Mail, MapPin, Menu, MessageCircle, Phone, ScanSearch, ShieldCheck, Waves, X, Camera, ClipboardCheck } from 'lucide-react'
+import { ArrowDown, ArrowRight, Check, Crosshair, Droplets, Instagram, Mail, MapPin, Menu, MessageCircle, Phone, ScanSearch, ShieldCheck, Waves, X, Camera, ClipboardCheck } from 'lucide-react'
 
 const WHATSAPP = 'https://wa.me/5547988901278'
 const services = [
