@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://fernandeluan.github.io/sonnar-site/sitemap.xml

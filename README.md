@@ -1,54 +1,52 @@
 # SONNAR — Caça Vazamentos
 
-Site institucional responsivo da SONNAR, com foco em apresentar os serviços de inspeção técnica e facilitar o contato pelo WhatsApp.
+Landing page institucional e comercial da SONNAR.
 
 ## Stack
-- React + TypeScript
-- Vite
+- React 18 + TypeScript
+- Vite 6
 - Lucide React
-- CSS modular por componente/seção (diretriz de arquitetura)
+- CSS Modules nos componentes compartilhados e CSS global para tokens/base e seções da página
 
-## Desenvolvimento local
+## Estrutura
+```
+public/                 Arquivos estáticos, logo, 404, robots e sitemap
+src/
+  components/           Header e Footer reutilizáveis
+  App.tsx               Composição e conteúdo da landing page
+  index.css             Tokens, estilos globais e seções da página
+  main.tsx              Bootstrap React
+.github/workflows/      Build e deploy do GitHub Pages
+```
+
+## Desenvolvimento
 ```bash
 npm install
 npm run dev
-```
-
-## Build de produção
-```bash
 npm run build
 npm run preview
 ```
 
-## Publicação — GitHub Pages
-O projeto está configurado para publicar automaticamente no GitHub Pages por GitHub Actions.
+## Deploy
+Push na branch `main` dispara GitHub Actions. O workflow compila e publica `dist/` no GitHub Pages. A origem do Pages deve permanecer configurada como **GitHub Actions**.
 
-1. No GitHub, abra **Settings → Pages**.
-2. Em **Build and deployment → Source**, selecione **GitHub Actions**.
-3. Faça push na branch `main` ou execute manualmente o workflow **Deploy to GitHub Pages** na aba Actions.
-4. Após o workflow concluir, o endereço público ficará disponível na área **Settings → Pages**.
+## Decisões técnicas e limites da hospedagem
+- O build gera assets versionados pelo Vite; nomes com hash permitem cache eficiente dos arquivos estáticos.
+- GitHub Pages/CDN controla os cabeçalhos HTTP de cache. Este repositório não configura `Cache-Control` customizado; para isso será necessário um host/CDN com controle de headers.
+- `public/404.html` fornece uma página de erro estática. GitHub Pages não oferece roteamento SPA avançado; manter a landing page em uma única rota evita dependência de fallback de rotas.
+- Não foi adicionado skeleton: o conteúdo é estático e não depende de chamadas de API. Reservar espaço para imagens e otimizar assets é mais apropriado do que simular carregamento.
+- Animações de entrada respeitam `prefers-reduced-motion` e têm fallback quando IntersectionObserver não está disponível.
 
-URL esperada do projeto: https://fernandeluan.github.io/sonnar-site/
+## Checklist de publicação comercial
+- [ ] Validar telefone/WhatsApp e responsável pelo atendimento.
+- [ ] Confirmar lista de serviços, técnicas/equipamentos e limites de cada atendimento.
+- [ ] Confirmar municípios, bairros, horários, preço de visita, formas de pagamento e política de cancelamento.
+- [ ] Confirmar se realiza reparos e se emite laudo; não anunciar sem validação.
+- [ ] Trocar as imagens ilustrativas por fotos próprias/autorizadas dos equipamentos, equipe e atendimentos.
+- [ ] Inserir depoimentos e casos reais somente com autorização dos clientes.
+- [ ] Informar razão social/CNPJ, endereço comercial e política de privacidade, se aplicável.
+- [ ] Configurar domínio próprio e Google Search Console/Perfil da Empresa no Google.
+- [ ] Executar testes em dispositivos reais e validar Core Web Vitals após publicação.
 
-O Vite está configurado com `base: '/sonnar-site/'`, necessário para publicação em um repositório de projeto no GitHub Pages. Se for usado um domínio próprio apontando para a raiz, essa configuração deverá ser ajustada.
-
-## Diretrizes de arquitetura
-- Componentes reutilizáveis em `src/components/`.
-- Seções de página isoladas em `src/sections/`.
-- Composição de páginas em `src/pages/`.
-- Conteúdo e configurações fora da camada visual em `src/data/` e `src/types/`.
-- Estilos globais limitados a reset, tokens, tipografia e regras base.
-- Estilos de cada componente/seção mantidos junto ao componente, preferencialmente com CSS Modules (`.module.css`).
-- Evitar componentes monolíticos, CSS global por tela e lógica de conteúdo misturada à apresentação.
-
-## Checklist antes de divulgar
-- [ ] Confirmar que o número +55 47 98890-1278 é o WhatsApp comercial correto.
-- [ ] Confirmar regiões e municípios efetivamente atendidos.
-- [ ] Substituir imagens ilustrativas por fotografias autorizadas da operação.
-- [ ] Validar serviços, métodos e entregáveis com o responsável técnico.
-- [ ] Adicionar avaliações reais de clientes, com autorização.
-- [ ] Configurar domínio próprio, Google Search Console e Perfil da Empresa no Google.
-- [ ] Revisar política de privacidade e dados de identificação da empresa.
-
-## Observação
-As imagens atuais são ilustrativas e os dados comerciais precisam ser validados antes da publicação.
+## Importante
+A copy evita promessas absolutas. Serviços, equipamentos, cobertura, laudos, garantias e preços precisam ser confirmados pela operação antes de serem anunciados.
