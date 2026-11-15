@@ -1,4 +1,4 @@
-import { ArrowRight, Activity, Camera, Check, ClipboardCheck, Droplets, FileText, Instagram, Mail, MapPin, MessageCircle, Phone, Search, ShieldCheck, Thermometer, Waves, Gauge, Target } from 'lucide-react'
+import { ArrowRight, Activity, Camera, Check, ClipboardCheck, Droplets, FileText, Instagram, Mail, MapPin, MessageCircle, Phone, Search, ShieldCheck, Thermometer, Gauge, Target } from 'lucide-react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 
@@ -23,6 +23,12 @@ const values = [
   ['Integridade', 'Agir com honestidade em cada orientação, apresentar os resultados com clareza e assumir compromissos que possam ser cumpridos.'],
   ['Respeito ao cliente', 'Valorizar seu tempo, seu investimento e sua privacidade, com pontualidade, discrição e atenção durante todo o atendimento.'],
   ['Excelência em cada detalhe', 'Expressar qualidade na apresentação, na comunicação, na organização e na execução do serviço, do primeiro contato à entrega do diagnóstico técnico.'],
+]
+const equipment = [
+  { icon: Target, tag: 'GEOfONAMENTO', title: 'Geofone Yamatec 4306', text: 'Modelo de referência indicado no dossiê para investigação de ruídos em tubulações pressurizadas.' },
+  { icon: Camera, tag: 'INSPEÇÃO POR CÂMERA', title: 'Boroscopia', text: 'Inspeção do interior de tubulações e pontos de difícil acesso com a câmera endoscópica efetivamente disponível.' },
+  { icon: Thermometer, tag: 'MÉTODO DE INSPEÇÃO', title: 'Termografia', text: 'Análise de diferenças de temperatura. O modelo utilizado deve ser confirmado conforme cada atendimento.' },
+  { icon: Droplets, tag: 'KIT INFORMADO COMO DISPONÍVEL', title: 'Traçador e luz UV', text: 'Investigação do percurso da água e de possíveis pontos de passagem e infiltração, com método adequado à situação.' },
 ]
 function App() {
   return <div className="site-shell">
@@ -63,13 +69,8 @@ function App() {
 
       <section className="equipment-section" id="tecnologia"><div className="container">
         <div className="section-heading"><div><div className="eyebrow"><span/> TECNOLOGIA E MÉTODO</div><h2>Cada situação exige <em>uma investigação adequada.</em></h2></div><p>Os equipamentos e procedimentos são selecionados conforme os sinais observados, as características da instalação e o histórico da ocorrência.</p></div>
-        <div className="equipment-grid">
-          <article className="equipment-card"><div className="equipment-image"><img src="./geofone-yamatec.webp" alt="Conjunto do geofone Yamatec 4306 em sua maleta" loading="lazy"/></div><div><span className="equipment-tag">GEofonamento</span><h3>Geofone Yamatec 4306</h3><p>Equipamento de referência para investigação de ruídos em tubulações pressurizadas.</p></div></article>
-          <article className="equipment-card"><div className="equipment-image"><img src="./camera-carretel.webp" alt="Câmera de inspeção com cabo laranja e monitor" loading="lazy"/></div><div><span className="equipment-tag">REFERÊNCIA DE PRODUTO</span><h3>Câmera com carretel</h3><p>Imagem de referência de câmera de inspeção. A disponibilidade deste modelo ainda não foi confirmada; não representa equipamento próprio em uso.</p></div></article>
-          <article className="equipment-card equipment-text"><span className="equipment-icon"><Thermometer size={28}/></span><span className="equipment-tag">MÉTODO DE INSPEÇÃO</span><h3>Termografia</h3><p>Análise de diferenças de temperatura para identificar sinais que auxiliam a investigação. O modelo utilizado deve ser confirmado conforme cada atendimento.</p></article>
-          <article className="equipment-card equipment-text"><span className="equipment-icon"><Droplets size={28}/></span><span className="equipment-tag">KIT INFORMADO COMO DISPONÍVEL</span><h3>Traçador e luz UV</h3><p>Investigação do percurso da água e de possíveis pontos de passagem e infiltração, com método adequado à situação.</p></article>
-        </div>
-        <p className="equipment-disclaimer">As imagens de equipamentos são referências de produto e não comprovam, por si só, aquisição ou disponibilidade para um atendimento específico.</p>
+        <div className="equipment-grid">{equipment.map(({icon:Icon,tag,title,text})=><article className="equipment-card" key={title}><span className="equipment-icon"><Icon size={27}/></span><span className="equipment-tag">{tag}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
+        <p className="equipment-disclaimer">A disponibilidade dos equipamentos e os métodos aplicáveis são avaliados conforme cada atendimento. Não anunciamos modelos cuja disponibilidade não foi confirmada.</p>
       </div></section>
 
       <section className="process-section" id="atendimento"><div className="container process-layout">
