@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 938 666" role="img" aria-labelledby="title desc">
-<title id="title">SONNAR Caça Vazamentos</title><desc id="desc">Símbolo de gota com check, nome SONNAR e assinatura Caça Vazamentos.</desc>
-<g fill="none" stroke="#FFFFFF" stroke-width="45" stroke-linecap="square" stroke-linejoin="miter">
-<path d="M469 76 345 232c-43 54-34 139 22 177 58 40 143 28 184-30 24-34 29-76 16-113"/>
-<path d="m386 270 78 77 160-164" stroke-width="48"/>
-</g>
-<g font-family="Arial,Helvetica,sans-serif" font-weight="900" text-anchor="middle">
-<text x="469" y="510" font-size="154" letter-spacing="-8" fill="#FFFFFF">SONNAR</text>
-<text x="469" y="584" font-size="56" letter-spacing="5" fill="#DFCAA4">CAÇA VAZAMENTOS</text>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 360" role="img" aria-label="SONNAR Caça Vazamentos"><g fill="none" stroke="#081526" stroke-width="18" stroke-linecap="square" stroke-linejoin="miter"><path d="M260 22 198 102c-28 36-22 92 15 118 38 26 94 18 121-20 16-22 19-50 10-74"/><path d="m220 126 39 39 82-84" stroke-width="20"/></g><text x="260" y="276" text-anchor="middle" fill="#081526" font-family="Arial,Helvetica,sans-serif" font-size="82" font-weight="900" letter-spacing="-4">SONNAR</text><text x="260" y="322" text-anchor="middle" fill="#DFCAA4" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="700" letter-spacing="5">CAÇA VAZAMENTOS</text></svg>
