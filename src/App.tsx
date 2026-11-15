@@ -2,7 +2,7 @@ import { ArrowRight, CheckCircle2, ClipboardCheck, Droplets, Instagram, Mail, Ma
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 const WA='https://wa.me/message/V2UGAYQJIJ77N1'
-const services=[
+const services: [typeof Target,string,string][]=[
 [Target,'Geofonamento','Investigamos ruídos em tubulações pressurizadas para localizar a origem de possíveis vazamentos.'],
 [Thermometer,'Termografia','Analisamos diferenças de temperatura para identificar sinais que auxiliam na investigação de vazamentos e infiltrações.'],
 [Camera,'Inspeção por câmera — Boroscopia','Inspecionamos o interior de tubulações e pontos de difícil acesso para identificar anomalias e registrar as condições encontradas.'],
