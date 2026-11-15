@@ -1,94 +1,23 @@
-import { ArrowRight, Activity, Camera, Check, ClipboardCheck, Droplets, FileText, Instagram, Mail, MapPin, MessageCircle, Phone, Search, ShieldCheck, Thermometer, Gauge, Target } from 'lucide-react'
+import { ArrowRight, CheckCircle2, ClipboardCheck, Droplets, Instagram, Mail, MapPin, MessageCircle, Phone, Search, ShieldCheck, Thermometer, Camera, Gauge, Target } from 'lucide-react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-
-const WHATSAPP = 'https://wa.me/message/V2UGAYQJIJ77N1'
-const PHONE = 'tel:+5547988901278'
-const services = [
-  { icon: Target, title: 'Geofonamento', text: 'Investigamos ruídos em tubulações pressurizadas para localizar a origem de possíveis vazamentos.' },
-  { icon: Thermometer, title: 'Termografia', text: 'Analisamos diferenças de temperatura para identificar sinais que auxiliam na investigação de vazamentos e infiltrações.' },
-  { icon: Camera, title: 'Inspeção por câmera — Boroscopia', text: 'Inspecionamos o interior de tubulações e pontos de difícil acesso para identificar anomalias e registrar as condições encontradas.' },
-  { icon: Gauge, title: 'Teste de estanqueidade', text: 'Realizamos testes em áreas e trechos delimitados para verificar possíveis perdas de água.' },
-  { icon: Droplets, title: 'Investigação com traçador', text: 'Acompanhamos o percurso da água com traçador para identificar possíveis pontos de passagem e infiltração.' },
-]
-const steps = [
-  ['01', 'Conte o que está acontecendo', 'Conversamos sobre os sinais percebidos e o histórico do problema para definir os próximos passos da avaliação.'],
-  ['02', 'Receba a proposta', 'Apresentamos o escopo da investigação, as condições e o valor do serviço antes da contratação.'],
-  ['03', 'Acompanhe a investigação', 'Realizamos os testes adequados à situação e registramos as evidências encontradas.'],
-  ['04', 'Receba a conclusão técnica', 'Entregamos o diagnóstico com os resultados, a origem identificada e a intervenção recomendada, quando conclusivas, além das limitações e necessidades de avaliação complementar.'],
-]
-const values = [
-  ['Cuidado com as pessoas e o patrimônio', 'Reconhecer a preocupação por trás de cada chamado e tratar cada ambiente com atenção, respeito e zelo.'],
-  ['Rigor técnico', 'Investigar com método, atenção e responsabilidade, sustentando cada diagnóstico nos testes realizados e nas evidências encontradas.'],
-  ['Integridade', 'Agir com honestidade em cada orientação, apresentar os resultados com clareza e assumir compromissos que possam ser cumpridos.'],
-  ['Respeito ao cliente', 'Valorizar seu tempo, seu investimento e sua privacidade, com pontualidade, discrição e atenção durante todo o atendimento.'],
-  ['Excelência em cada detalhe', 'Expressar qualidade na apresentação, na comunicação, na organização e na execução do serviço, do primeiro contato à entrega do diagnóstico técnico.'],
-]
-const equipment = [
-  { icon: Target, tag: 'GEOfONAMENTO', title: 'Geofone Yamatec 4306', text: 'Modelo de referência indicado no dossiê para investigação de ruídos em tubulações pressurizadas.' },
-  { icon: Camera, tag: 'INSPEÇÃO POR CÂMERA', title: 'Boroscopia', text: 'Inspeção do interior de tubulações e pontos de difícil acesso com a câmera endoscópica efetivamente disponível.' },
-  { icon: Thermometer, tag: 'MÉTODO DE INSPEÇÃO', title: 'Termografia', text: 'Análise de diferenças de temperatura. O modelo utilizado deve ser confirmado conforme cada atendimento.' },
-  { icon: Droplets, tag: 'KIT INFORMADO COMO DISPONÍVEL', title: 'Traçador e luz UV', text: 'Investigação do percurso da água e de possíveis pontos de passagem e infiltração, com método adequado à situação.' },
-]
-function App() {
-  return <div className="site-shell">
-    <Header />
-    <main>
-      <section className="hero" id="inicio">
-        <div className="hero-glow" aria-hidden="true" />
-        <div className="container hero-content">
-          <div className="hero-copy">
-            <div className="eyebrow"><span /> CAÇA VAZAMENTOS · BLUMENAU · VALE DO ITAJAÍ · LITORAL</div>
-            <h1>Manchas de umidade ou conta de água acima do normal?</h1>
-            <p className="hero-lead">Investigamos a suspeita de vazamento com tecnologia e testes adequados ao seu imóvel, buscando identificar a origem do problema e indicar a solução recomendada.</p>
-            <ul className="hero-points">
-              <li><Check size={17}/> Localização técnica de vazamentos</li>
-              <li><Check size={17}/> Inspeção evitando quebras desnecessárias</li>
-              <li><Check size={17}/> Diagnóstico com resultados e orientação da solução</li>
-            </ul>
-            <a className="button button-primary" href={WHATSAPP} target="_blank" rel="noreferrer"><MessageCircle size={19}/> Falar com a SONNAR <ArrowRight size={17}/></a>
-            <div className="hero-signature">Precisão que localiza, economia que resolve.</div>
-          </div>
-          <div className="hero-brand-panel">
-            <img src="./sonnar-logo.svg" alt="SONNAR Caça Vazamentos" />
-            <div className="panel-line" />
-            <span>TECNOLOGIA PARA ENCONTRAR A ORIGEM</span>
-            <div className="panel-mark" aria-hidden="true"><Droplets /></div>
-          </div>
-        </div>
-        <div className="container hero-bottom"><span>EMPRESAS</span><i/><span>CONDOMÍNIOS</span><i/><span>RESIDÊNCIAS</span></div>
-      </section>
-
-      <section className="intro-band"><div className="container intro-inner"><span className="intro-mark"><Search size={23}/></span><p><b>Antes de quebrar, descubra a origem do vazamento.</b><small>Investigação técnica orientada pelos sinais e pelas características de cada imóvel.</small></p><a href="#servicos">Conheça os métodos <ArrowRight size={17}/></a></div></section>
-
-      <section className="services-section section-light" id="servicos"><div className="container">
-        <div className="section-heading"><div><div className="eyebrow dark"><span/> SERVIÇOS</div><h2>Tecnologia para investigar. <em>Precisão para esclarecer.</em></h2></div><p>Selecionamos os métodos adequados para cada situação, buscando verificar a existência de vazamentos, localizar sua origem e indicar a intervenção recomendada.</p></div>
-        <div className="service-grid">{services.map(({icon:Icon,title,text},i)=><article className="service-card" key={title}><span className="service-number">0{i+1}</span><span className="service-icon"><Icon size={25}/></span><h3>{title}</h3><p>{text}</p></article>)}</div>
-        <div className="diagnostic-note"><FileText size={23}/><p><b>Diagnóstico técnico ao final da investigação</b><span>Você recebe os testes realizados, as evidências encontradas e a conclusão da investigação, com orientação sobre a intervenção recomendada.</span></p></div>
-      </div></section>
-
-      <section className="equipment-section" id="tecnologia"><div className="container">
-        <div className="section-heading"><div><div className="eyebrow"><span/> TECNOLOGIA E MÉTODO</div><h2>Cada situação exige <em>uma investigação adequada.</em></h2></div><p>Os equipamentos e procedimentos são selecionados conforme os sinais observados, as características da instalação e o histórico da ocorrência.</p></div>
-        <div className="equipment-grid">{equipment.map(({icon:Icon,tag,title,text})=><article className="equipment-card" key={title}><span className="equipment-icon"><Icon size={27}/></span><span className="equipment-tag">{tag}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
-        <p className="equipment-disclaimer">A disponibilidade dos equipamentos e os métodos aplicáveis são avaliados conforme cada atendimento. Não anunciamos modelos cuja disponibilidade não foi confirmada.</p>
-      </div></section>
-
-      <section className="process-section" id="atendimento"><div className="container process-layout">
-        <div className="process-intro"><div className="eyebrow"><span/> COMO FUNCIONA O ATENDIMENTO</div><h2>Do primeiro contato à <em>conclusão técnica.</em></h2><p>Você sabe o que será investigado, quais condições foram combinadas e o que os resultados permitem concluir.</p><a className="button button-primary" href={WHATSAPP} target="_blank" rel="noreferrer"><MessageCircle size={18}/> Fale com a SONNAR</a></div>
-        <div className="steps">{steps.map(([number,title,text])=><article className="step" key={number}><span className="step-number">{number}</span><div><h3>{title}</h3><p>{text}</p></div><Check className="step-check" size={19}/></article>)}</div>
-      </div></section>
-
-      <section className="deliverable-section"><div className="container deliverable-inner"><div><div className="eyebrow dark"><span/> INVESTIGAÇÃO E DIAGNÓSTICO TÉCNICO</div><h2>Informação para orientar <em>a próxima decisão.</em></h2><p>Nosso serviço compreende a inspeção, os testes e a análise dos resultados, com indicação da intervenção recomendada conforme as evidências encontradas.</p></div><div className="deliverable-list"><div><ClipboardCheck/><span><b>Testes e procedimentos realizados</b><small>Registro do que foi aplicado durante a investigação.</small></span></div><div><Activity/><span><b>Resultados e evidências</b><small>Informações encontradas e registros fotográficos da inspeção.</small></span></div><div><ShieldCheck/><span><b>Conclusão e orientação</b><small>Origem identificada, quando conclusiva, e indicação do próximo passo.</small></span></div></div></div><div className="container repair-note">A execução de reparos não faz parte do serviço da SONNAR.</div></section>
-
-      <section className="about-section section-light" id="sobre"><div className="container about-layout"><div className="about-copy"><div className="eyebrow dark"><span/> SOBRE A SONNAR</div><h2>Tecnologia e método. <em>Cuidado com cada cliente.</em></h2><p>A Sonnar reúne tecnologia e métodos profissionais de inspeção para localizar a origem de vazamentos em empresas, condomínios e residências.</p><p>Por trás de cada chamado, há uma rotina afetada e alguém que precisa de respostas. Por isso, o atendimento combina rigor técnico, respeito ao ambiente e atenção às preocupações de cada cliente.</p><p>Da primeira conversa à entrega do diagnóstico técnico, cada etapa é conduzida com organização, clareza e cuidado com as pessoas e o patrimônio.</p></div><div className="purpose-grid"><article><span>MISSÃO</span><p>Identificar a origem dos vazamentos com tecnologia e precisão, preservando o patrimônio e oferecendo a cada cliente o cuidado e a atenção que sua situação exige.</p></article><article><span>VISÃO</span><p>Elevar o padrão do caça vazamentos no Vale do Itajaí e no litoral, fazendo da precisão técnica e do cuidado com cada cliente uma experiência que as pessoas façam questão de recomendar.</p></article></div></div>
-        <div className="container values-wrap"><div className="values-heading"><span className="eyebrow dark"><span/> NOSSOS VALORES</span><h3>O que orienta cada atendimento.</h3></div><div className="values-grid">{values.map(([title,text],i)=><article key={title}><span>0{i+1}</span><h4>{title}</h4><p>{text}</p></article>)}</div></div>
-      </section>
-
-      <section className="coverage-section"><div className="container coverage-inner"><div><div className="eyebrow"><span/> ONDE ATENDEMOS</div><h2>Do Vale do Itajaí ao litoral, <em>onde você estiver.</em></h2><p>Com base em Blumenau, a SONNAR vai até empresas, condomínios e residências para realizar a inspeção. Consulte o atendimento na sua região.</p></div><div className="coverage-card"><MapPin size={30}/><b>Blumenau · Santa Catarina</b><span>Vale do Itajaí · Litoral</span><a href={WHATSAPP} target="_blank" rel="noreferrer">Consultar minha região <ArrowRight size={17}/></a></div></div></section>
-
-      <section className="contact-section" id="contato"><div className="container contact-layout"><div><div className="eyebrow dark"><span/> FALE COM A SONNAR</div><h2>Suspeita de vazamento? <em>Vamos investigar!</em></h2><p>Precisa localizar um vazamento ou esclarecer uma dúvida sobre a inspeção? Conte o que está acontecendo. A SONNAR orienta você sobre o atendimento e os próximos passos.</p><a className="button button-primary" href={WHATSAPP} target="_blank" rel="noreferrer"><MessageCircle size={19}/> Falar pelo WhatsApp <ArrowRight size={17}/></a></div><div className="contact-details"><a href={PHONE}><Phone/> <span><small>WHATSAPP / TELEFONE</small>(47) 98890-1278</span></a><a href="mailto:sonnar.vazamentos@gmail.com"><Mail/> <span><small>E-MAIL</small>sonnar.vazamentos@gmail.com</span></a><a href="https://www.instagram.com/sonnar.vazamentos/" target="_blank" rel="noreferrer"><Instagram/> <span><small>INSTAGRAM</small>@sonnar.vazamentos</span></a><a href="https://www.sonnarcacavazamentos.com.br" target="_blank" rel="noreferrer"><ArrowRight/> <span><small>ENDEREÇO NA WEB</small>www.sonnarcacavazamentos.com.br</span></a></div></div></section>
-    </main>
-    <Footer/>
-  </div>
-}
-export default App
+const WA='https://wa.me/message/V2UGAYQJIJ77N1'
+const services=[
+[Target,'Geofonamento','Investigamos ruídos em tubulações pressurizadas para localizar a origem de possíveis vazamentos.'],
+[Thermometer,'Termografia','Analisamos diferenças de temperatura para identificar sinais que auxiliam na investigação de vazamentos e infiltrações.'],
+[Camera,'Inspeção por câmera — Boroscopia','Inspecionamos o interior de tubulações e pontos de difícil acesso para identificar anomalias e registrar as condições encontradas.'],
+[Gauge,'Teste de estanqueidade','Realizamos testes em áreas e trechos delimitados para verificar possíveis perdas de água.'],
+[Droplets,'Investigação com traçador','Acompanhamos o percurso da água com traçador para identificar possíveis pontos de passagem e infiltração.']]
+const steps=[['01','Conte o que está acontecendo','Conversamos sobre os sinais percebidos e o histórico do problema para definir os próximos passos da avaliação.'],['02','Receba a proposta','Apresentamos o escopo da investigação, as condições e o valor do serviço antes da contratação.'],['03','Acompanhe a investigação','Realizamos os testes adequados à situação e registramos as evidências encontradas.'],['04','Receba a conclusão técnica','Entregamos o diagnóstico com os resultados, a origem identificada e a intervenção recomendada, quando conclusivas, além das limitações e necessidades de avaliação complementar.']]
+const values=[['Cuidado com as pessoas e o patrimônio','Reconhecer a preocupação por trás de cada chamado e tratar cada ambiente com atenção, respeito e zelo.'],['Rigor técnico','Investigar com método, atenção e responsabilidade, sustentando cada diagnóstico nos testes realizados e nas evidências encontradas.'],['Integridade','Agir com honestidade em cada orientação, apresentar os resultados com clareza e assumir compromissos que possam ser cumpridos.'],['Respeito ao cliente','Valorizar seu tempo, seu investimento e sua privacidade, com pontualidade, discrição e atenção durante todo o atendimento.'],['Excelência em cada detalhe','Expressar qualidade na apresentação, na comunicação, na organização e na execução do serviço, do primeiro contato à entrega do diagnóstico técnico.']]
+export default function App(){return <div className="site-shell"><Header/><main>
+<section className="hero" id="inicio"><div className="container hero-grid"><div><div className="eyebrow">CAÇA VAZAMENTOS · BLUMENAU · VALE DO ITAJAÍ · LITORAL</div><h1>Manchas de umidade ou conta de água acima do normal?</h1><p className="lead">Investigamos a suspeita de vazamento com tecnologia e testes adequados ao seu imóvel, buscando identificar a origem do problema e indicar a solução recomendada.</p><ul className="checks"><li><CheckCircle2/>Localização técnica de vazamentos</li><li><CheckCircle2/>Inspeção evitando quebras desnecessárias</li><li><CheckCircle2/>Diagnóstico com resultados e orientação da solução</li></ul><a className="btn" href={WA} target="_blank" rel="noreferrer"><MessageCircle/>Falar com a SONNAR <ArrowRight/></a><p className="location"><MapPin/>Empresas, condomínios e residências em Blumenau, Vale do Itajaí e litoral.</p></div><div className="hero-brand"><img src="./sonnar-logo-light.svg" alt="SONNAR Caça Vazamentos"/><p>Precisão que localiza,<br/><b>economia que resolve.</b></p></div></div></section>
+<div className="brand-strip"><div className="container"><b>SONNAR CAÇA VAZAMENTOS</b><span>Precisão que localiza, economia que resolve.</span><a href="#servicos">Conheça nossos métodos →</a></div></div>
+<section className="light section" id="servicos"><div className="container"><div className="eyebrow dark">TECNOLOGIA E MÉTODO</div><div className="heading"><h2>Tecnologia para investigar.<br/><em>Precisão para esclarecer.</em></h2><p>Selecionamos os métodos adequados para cada situação, buscando verificar a existência de vazamentos, localizar sua origem e indicar a intervenção recomendada.</p></div><div className="services">{services.map(([Icon,title,text],i)=><article key={title}><span className="num">0{i+1}</span><Icon/><h3>{title}</h3><p>{text}</p></article>)}</div><p className="note"><ShieldCheck/>A escolha dos métodos considera os sinais observados, as características da instalação e o histórico da ocorrência.</p></div></section>
+<section className="diagnosis" id="diagnostico"><div className="container diagnosis-grid"><div className="graphic"><Search/><span>INSPEÇÃO COM MÉTODO</span></div><div><div className="eyebrow">RESULTADO DA INVESTIGAÇÃO</div><h2>Você entende o que foi encontrado e o que fazer a seguir.</h2><p>Você recebe um diagnóstico técnico com os testes realizados, as evidências encontradas e a conclusão da investigação.</p><div className="deliverables"><div><ClipboardCheck/><b>Testes e procedimentos</b></div><div><Target/><b>Resultados encontrados</b></div><div><Camera/><b>Registros fotográficos</b></div></div></div></div></section>
+<section className="light section" id="processo"><div className="container"><div className="eyebrow dark">COMO FUNCIONA O ATENDIMENTO</div><div className="heading"><h2>Do primeiro contato à <em>conclusão técnica.</em></h2><p>Transparência em cada etapa, com escopo e condições apresentados antes da contratação.</p></div><div className="steps">{steps.map(([n,t,d])=><article key={n}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div></article>)}</div><div className="repair"><ShieldCheck/><p><b>Investigação e diagnóstico técnico</b><br/>Nosso serviço compreende a inspeção, os testes e a análise dos resultados, com indicação da intervenção recomendada conforme as evidências encontradas. <strong>A execução de reparos não faz parte do serviço da SONNAR.</strong></p></div></div></section>
+<section className="about" id="sobre"><div className="container about-grid"><div><div className="eyebrow">SOBRE A SONNAR</div><h2>Tecnologia e método. <em>Respeito por cada ambiente.</em></h2><p>A Sonnar reúne tecnologia e métodos profissionais de inspeção para localizar a origem de vazamentos em empresas, condomínios e residências.</p><p>Por trás de cada chamado, há uma rotina afetada e alguém que precisa de respostas. Por isso, o atendimento combina rigor técnico, respeito ao ambiente e atenção às preocupações de cada cliente.</p><p>Da primeira conversa à entrega do diagnóstico técnico, cada etapa é conduzida com organização, clareza e cuidado com as pessoas e o patrimônio.</p></div><div className="purpose"><article><small>01 / MISSÃO</small><p>Identificar a origem dos vazamentos com tecnologia e precisão, preservando o patrimônio e oferecendo a cada cliente o cuidado e a atenção que sua situação exige.</p></article><article><small>02 / VISÃO</small><p>Elevar o padrão do caça vazamentos no Vale do Itajaí e no litoral, fazendo da precisão técnica e do cuidado com cada cliente uma experiência que as pessoas façam questão de recomendar.</p></article></div></div></section>
+<section className="light section"><div className="container"><div className="eyebrow dark">NOSSOS VALORES</div><div className="values">{values.map(([t,d],i)=><article key={t}><small>0{i+1}</small><h3>{t}</h3><p>{d}</p></article>)}</div></div></section>
+<section className="coverage"><div className="container coverage-grid"><div><div className="eyebrow">ONDE ATENDEMOS</div><h2>Do Vale do Itajaí ao litoral, <em>onde você estiver.</em></h2><p>Com base em Blumenau, a Sonnar vai até empresas, condomínios e residências para realizar a inspeção.</p></div><div><MapPin/><b>Blumenau · Santa Catarina</b><span>Vale do Itajaí · Litoral</span><a href={WA} target="_blank" rel="noreferrer">Consultar atendimento na minha região →</a></div></div></section>
+<section className="light section" id="contato"><div className="container contact-grid"><div><div className="eyebrow dark">FALE COM A SONNAR</div><h2>Suspeita de vazamento?<br/><em>Vamos investigar.</em></h2><p>Precisa localizar um vazamento ou esclarecer uma dúvida sobre a inspeção? Conte o que está acontecendo. A Sonnar orienta você sobre o atendimento e os próximos passos.</p><a className="btn" href={WA} target="_blank" rel="noreferrer"><MessageCircle/>Falar pelo WhatsApp <ArrowRight/></a></div><div className="contact-links"><a href="tel:+5547988901278"><Phone/>(47) 98890-1278</a><a href="mailto:sonnar.vazamentos@gmail.com"><Mail/>sonnar.vazamentos@gmail.com</a><a href="https://www.instagram.com/sonnar.vazamentos/" target="_blank" rel="noreferrer"><Instagram/>@sonnar.vazamentos</a><a href="https://www.sonnarcacavazamentos.com.br/" target="_blank" rel="noreferrer">www.sonnarcacavazamentos.com.br</a></div></div></section>
+<section className="final"><div className="container"><img src="./sonnar-logo-light.svg" alt="SONNAR"/><h2>Suspeita de vazamento? Vamos investigar.</h2><p>Conte o que está acontecendo.</p><a className="btn" href={WA} target="_blank" rel="noreferrer"><MessageCircle/>Fale com a SONNAR</a></div></section></main><Footer/></div>}
