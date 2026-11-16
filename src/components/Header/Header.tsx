@@ -6,7 +6,7 @@ export default function Header(){
  const[open,setOpen]=useState(false)
  return <header className={styles.header}>
   <div className={styles.inner}>
-   <a className={styles.brand} href="#inicio" aria-label="SONNAR início" onClick={()=>setOpen(false)}><img src="./sonnar-logo-dark.webp" alt="SONNAR Caça Vazamentos"/></a>
+   <a className={styles.brand} href="#inicio" aria-label="SONNAR início" onClick={()=>setOpen(false)}><img src="./sonnar-logo-header.webp" alt="SONNAR Caça Vazamentos"/></a>
    <nav className={styles.desktop} aria-label="Navegação principal">{links.map(([label,href])=><a key={label} href={href}>{label}</a>)}</nav>
    <button className={styles.toggle} type="button" onClick={()=>setOpen(value=>!value)} aria-label={open?'Fechar menu':'Abrir menu'} aria-expanded={open} aria-controls="mobile-navigation">{open?<X/>:<Menu/>}</button>
   </div>
