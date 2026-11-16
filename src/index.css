@@ -91,3 +91,11 @@ body{color:var(--ink)}.container{width:min(1200px,calc(100% - 56px))}
  .contact-cta p{font-size:15px}
  .contact-cta .wa-link{width:100%;font-size:15px}
 }
+
+
+/* Service cards: icon aligned with title */
+.services .service-heading{display:flex;align-items:center;gap:13px;margin-bottom:12px;min-width:0}
+.services .service-heading svg{color:#a58d64;width:31px;height:31px;stroke-width:1.7;flex:0 0 31px}
+.services .service-heading h3{font:700 18px/1.25 Manrope,sans-serif;color:#102033;margin:0}
+.services article p{margin:0}
+@media(max-width:760px){.services .service-heading{gap:9px;align-items:flex-start;margin-bottom:11px}.services .service-heading svg{width:25px;height:25px;flex-basis:25px}.services .service-heading h3{font-size:14px;line-height:1.25}.services article{min-height:0}}
