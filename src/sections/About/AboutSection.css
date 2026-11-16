@@ -24,3 +24,13 @@
 .about h2{font-size:31px;line-height:1.15}
 .about p{font-size:15px}
 .about-more summary{font-size:15px}}
+
+.about-more-content{transform-origin:top}
+.about-more details[open] .about-more-content{animation:aboutExpand .32s cubic-bezier(.2,.75,.25,1) both}
+@keyframes aboutExpand{
+ from{opacity:0;transform:translateY(-12px) scaleY(.97)}
+ to{opacity:1;transform:translateY(0) scaleY(1)}
+}
+@media(prefers-reduced-motion:reduce){
+ .about-more details[open] .about-more-content{animation:none}
+}
