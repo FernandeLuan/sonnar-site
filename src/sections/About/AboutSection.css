@@ -9,7 +9,7 @@
 .about-more details[open] summary:after{content:'−'}
 .about-more article{padding:15px 0 0}
 .about-more article small{font-size:10px;letter-spacing:1.5px;color:#a58d64;font-weight:800}
-.about-more article b{font-size:13px;color:#102033}
+.about-more article b{font-size:13px;color:#a58d64}
 .about-more article p{font-size:12px;line-height:1.7;margin:7px 0 0}
 @media(max-width:760px){.about-grid{grid-template-columns:1fr;gap:27px}
 .about{padding:58px 0}
@@ -24,3 +24,13 @@
 .about h2{font-size:31px;line-height:1.15}
 .about p{font-size:15px}
 .about-more summary{font-size:15px}}
+
+.about-more-content{transform-origin:top}
+.about-more details[open] .about-more-content{animation:aboutExpand .32s cubic-bezier(.2,.75,.25,1) both}
+@keyframes aboutExpand{
+ from{opacity:0;transform:translateY(-12px) scaleY(.97)}
+ to{opacity:1;transform:translateY(0) scaleY(1)}
+}
+@media(prefers-reduced-motion:reduce){
+ .about-more details[open] .about-more-content{animation:none}
+}
