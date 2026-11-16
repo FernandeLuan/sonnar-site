@@ -28,8 +28,6 @@ export default function DiagnosisSection() {
           <li><Camera aria-hidden="true"/>Registros fotográficos</li>
           <li><ShieldCheck aria-hidden="true"/>Solução indicada para o reparo</li>
         </ul>
-
-        <p className="diagnosis-note">Quando os testes não permitirem confirmar a origem, apresentamos os resultados, as limitações e os próximos passos da investigação.</p>
       </div>
     </section>
   )
