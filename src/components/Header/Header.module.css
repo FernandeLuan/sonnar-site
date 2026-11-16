@@ -1,1 +1,21 @@
-.header{height:88px;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid #e3e2dd;position:sticky;top:0;z-index:20}.inner{width:min(1200px,calc(100% - 56px));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px}.brand{display:flex;align-items:center;height:100%;flex:0 0 auto}.brand img{width:218px;height:76px;object-fit:contain;object-position:left center}.desktop{display:flex;gap:25px;font-size:14px;font-weight:700;color:#26374a}.desktop a{transition:color .2s ease}.desktop a:hover{color:#9a8055}.cta,.mobileCta{display:flex;align-items:center;gap:9px;background:#071b31;color:#fff;padding:13px 16px;font-size:14px;font-weight:800;border:1px solid #071b31;border-radius:3px;white-space:nowrap;transition:background .2s ease,transform .2s ease}.cta:hover{background:#153653;transform:translateY(-1px)}.cta svg,.mobileCta svg{width:21px;height:21px;fill:#25D366;color:#25D366}.toggle,.mobile{display:none}@media(max-width:1000px){.desktop{gap:14px;font-size:12px}.inner{gap:14px}.brand img{width:180px}.cta{font-size:12px;padding:11px}}@media(max-width:700px){.header{height:70px}.inner{width:calc(100% - 24px);gap:8px}.brand img{width:125px;height:58px}.desktop{display:none}.cta{display:flex;margin-left:auto;padding:9px 9px;font-size:10px;gap:6px}.cta span{display:inline}.cta svg{width:22px;height:22px}.toggle{display:grid;background:#fff;color:#102033;border:1px solid #d9dde1;padding:8px;border-radius:4px}.mobile{display:flex;position:absolute;top:70px;left:0;right:0;flex-direction:column;background:#fff;padding:10px 18px 20px;box-shadow:0 12px 20px #10203318}.mobile>a{padding:14px 0;border-bottom:1px solid #edf0f1;display:flex;justify-content:space-between;color:#102033;font-size:15px}.mobile .mobileCta{justify-content:center;margin-top:13px;border:1px solid #071b31;border-radius:4px}}
+.header{height:88px;background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-bottom:1px solid #e3e2dd;position:sticky;top:0;z-index:40}
+.inner{width:min(1200px,calc(100% - 56px));height:100%;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{display:flex;align-items:center;height:100%;flex:0 0 auto}.brand img{width:218px;height:76px;object-fit:contain;object-position:left center}
+.desktop{display:flex;gap:25px;font-size:15px;font-weight:700;color:#26374a}.desktop a{transition:color .2s ease}.desktop a:hover{color:#9a8055}
+.toggle{display:none}
+.mobileOpen,.mobileClosed{display:none}
+@media(max-width:1000px){.desktop{gap:14px;font-size:13px}.inner{gap:14px}.brand img{width:180px}}
+@media(max-width:700px){
+ .header{height:70px}.inner{width:calc(100% - 28px);gap:12px}.brand img{width:145px;height:62px}.desktop{display:none}
+ .toggle{display:grid;place-items:center;background:#fff;color:#102033;border:1px solid #d9dde1;padding:9px;border-radius:5px;min-width:44px;min-height:44px;transition:background .2s ease,border-color .2s ease,transform .2s ease}
+ .toggle:active{transform:scale(.96)}.toggle:focus-visible{outline:2px solid #b49a69;outline-offset:3px}
+ .mobileOpen,.mobileClosed{position:absolute;top:70px;left:0;right:0;display:flex;flex-direction:column;background:rgba(255,255,255,.985);padding:10px 18px 18px;box-shadow:0 16px 28px #10203318;border-top:1px solid #ece9e2;transform-origin:top;backdrop-filter:blur(12px)}
+ .mobileOpen{visibility:visible;opacity:1;transform:translateY(0) scaleY(1);pointer-events:auto;animation:menuEnter .32s cubic-bezier(.2,.75,.25,1) both}
+ .mobileClosed{visibility:hidden;opacity:0;transform:translateY(-9px) scaleY(.96);pointer-events:none}
+ .mobileOpen a,.mobileClosed a{padding:15px 0;border-bottom:1px solid #edf0f1;display:flex;justify-content:space-between;align-items:center;color:#102033;font-size:17px;font-weight:600;min-height:54px}
+ .mobileOpen a{animation:menuItemEnter .3s ease both;animation-delay:calc(var(--menu-index,0)*45ms + 55ms)}
+ .mobileOpen a svg{color:#a58d64;transition:transform .2s ease}.mobileOpen a:active svg{transform:translateX(4px)}
+}
+@keyframes menuEnter{from{opacity:0;transform:translateY(-12px) scaleY(.97)}to{opacity:1;transform:translateY(0) scaleY(1)}}
+@keyframes menuItemEnter{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.mobileOpen,.mobileOpen a{animation:none!important}.toggle,.mobileOpen a svg{transition:none!important}}
