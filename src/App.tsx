@@ -1,4 +1,4 @@
-import type {ReactNode} from 'react'
+import {useEffect,type ReactNode} from 'react'
 import {ArrowRight,ClipboardCheck,Droplets,Instagram,Mail,MapPin,Phone,ShieldCheck,Thermometer,Camera,Activity,Target} from 'lucide-react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
@@ -13,7 +13,26 @@ const services: [typeof Target,string,string][]=[
 [Droplets,'Investigação com traçador','Acompanhamento do percurso da água para investigar pontos de passagem.']]
 const steps=[['01','Conte o que está acontecendo','Conversamos sobre os sinais percebidos e o histórico do problema.'],['02','Receba a proposta','Apresentamos o serviço, as condições e o valor antes da contratação.'],['03','Realizamos a investigação','Aplicamos os testes adequados para localizar a origem do vazamento.'],['04','Receba o diagnóstico técnico','Apresentamos os resultados e a solução indicada para o reparo.']]
 const values=[['Cuidado com as pessoas e o patrimônio','Reconhecer a preocupação por trás de cada chamado e tratar cada ambiente com atenção, respeito e zelo.'],['Rigor técnico','Investigar com método, atenção e responsabilidade, sustentando cada diagnóstico nos testes realizados e nas evidências encontradas.'],['Integridade','Agir com honestidade em cada orientação, apresentar os resultados com clareza e assumir compromissos que possam ser cumpridos.'],['Respeito ao cliente','Valorizar seu tempo, seu investimento e sua privacidade, com pontualidade, discrição e atenção durante todo o atendimento.'],['Excelência em cada detalhe','Expressar qualidade na apresentação, na comunicação, na organização e na execução do serviço, do primeiro contato à entrega do diagnóstico técnico.']]
-export default function App(){return <div className="site-shell"><Header/><main>
+export default function App(){
+ useEffect(()=>{
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if(reduceMotion)return
+  const selector='.hero-grid > div, .light .container > .eyebrow, .heading, .services article, .service-contact, .diagnosis-grid > *, .steps article, .repair, .about-grid > *, .coverage-grid > *, .contact-grid > *'
+  const elements=Array.from(document.querySelectorAll<HTMLElement>(selector))
+  if(!('IntersectionObserver' in window))return
+  elements.forEach((element,index)=>{
+   element.classList.add('scroll-reveal')
+   if(element.matches('.services article'))element.style.setProperty('--reveal-delay',(index%5)*75+'ms')
+  })
+  const observer=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{
+    if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}
+   })
+  },{threshold:0.12,rootMargin:'0px 0px -36px 0px'})
+  elements.forEach(element=>observer.observe(element))
+  return()=>observer.disconnect()
+ },[])
+ return <div className="site-shell"><Header/><main>
 <section className="hero" id="inicio"><div className="container hero-grid"><div><div className="eyebrow">CAÇA VAZAMENTOS · BLUMENAU E REGIÃO</div><h1>Manchas de umidade ou conta de água acima do normal?</h1><p className="lead">Localizamos a origem exata do vazamento com tecnologia e precisão, evitando quebras desnecessárias.</p><ContactLink>Fale com a SONNAR (47) 98890-1278</ContactLink><p className="location"><MapPin/>Empresas, condomínios e residências em Blumenau, Vale do Itajaí e litoral.</p></div><div className="hero-side"><span>SONNAR CAÇA VAZAMENTOS</span><p>Precisão que localiza,<br/><strong>economia que resolve</strong></p><div className="hero-rule"/></div></div></section>
 <section className="light section" id="servicos"><div className="container"><div className="eyebrow dark">SERVIÇOS</div><div className="heading"><h2>Tecnologia e precisão para localizar a origem do vazamento</h2><p>Selecionamos os métodos adequados para cada situação e as características do imóvel.</p></div><div className="services">{services.map(([Icon,title,text],i)=><article key={title}><div className="service-top"><span className="num">0{i+1}</span><Icon/></div><h3>{title}</h3><p>{text}</p></article>)}</div><div className="service-contact"><span>Quer conversar sobre o seu caso?</span><ContactLink>(47) 98890-1278</ContactLink></div></div></section>
 <section className="diagnosis"><div className="container diagnosis-grid"><div className="diagnosis-image"><div className="report-sheet"><div className="report-head"><b>SONNAR</b><span>DIAGNÓSTICO TÉCNICO</span></div><div className="report-line wide"/><div className="report-line"/><div className="report-photo"><ClipboardCheck/><span>REGISTROS DA INSPEÇÃO</span></div><div className="report-line wide"/><div className="report-line short"/><div className="report-stamp">ANÁLISE TÉCNICA</div></div><small>Representação ilustrativa de um diagnóstico técnico</small></div><div><div className="eyebrow">O QUE VOCÊ RECEBE</div><h2>A origem do vazamento e a solução para o reparo</h2><p>O diagnóstico técnico apresenta os testes realizados, os resultados encontrados e o que precisa ser feito para resolver o vazamento.</p><ul className="deliverables"><li><Target/>Origem identificada do vazamento</li><li><ClipboardCheck/>Testes e resultados da inspeção</li><li><Camera/>Registros fotográficos</li><li><ShieldCheck/>Solução indicada para o reparo</li></ul><p className="diagnosis-note">Quando a investigação não for conclusiva, o diagnóstico apresenta os resultados, as limitações e os próximos testes necessários, sem afirmar uma localização que não foi confirmada.</p></div></div></section>
