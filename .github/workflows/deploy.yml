@@ -45,6 +45,8 @@ jobs:
             git commit -m "build: add npm lockfile"
             git push origin "HEAD:${GITHUB_HEAD_REF}"
           fi
+      - name: Verify clean lockfile install
+        run: npm ci --no-audit --no-fund
       - name: Type-check and build
         run: npm run build
       - name: Verify production artifact
