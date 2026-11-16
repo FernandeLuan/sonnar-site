@@ -11,7 +11,7 @@ export default function Header(){
    <button className={styles.toggle} type="button" onClick={()=>setOpen(value=>!value)} aria-label={open?'Fechar menu':'Abrir menu'} aria-expanded={open} aria-controls="mobile-navigation">{open?<X/>:<Menu/>}</button>
   </div>
   <nav id="mobile-navigation" className={open?styles.mobileOpen:styles.mobileClosed} aria-label="Navegação móvel" aria-hidden={!open}>
-   {links.map(([label,href],index)=><a key={label} href={href} tabIndex={open?0:-1} style={{'--menu-index':index} as React.CSSProperties} onClick={()=>setOpen(false)}>{label}<ArrowRight size={18}/></a>)}
+   {links.map(([label,href],index)=><a key={label} href={href} tabIndex={open?0:-1} style={{animationDelay: (index * 45 + 55) + 'ms'}} onClick={()=>setOpen(false)}>{label}<ArrowRight size={18}/></a>)}
   </nav>
  </header>
 }
