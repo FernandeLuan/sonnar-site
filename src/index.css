@@ -46,3 +46,10 @@ body{color:var(--ink)}.container{width:min(1200px,calc(100% - 56px))}
  .contact:after{width:220px;height:250px;right:-70px;bottom:-105px}
  .services-section:after{width:190px;height:215px;right:-65px;top:20px}
 }
+
+/* Progressive entrance on scroll */
+.scroll-reveal{opacity:0;transform:translate3d(0,22px,0);transition:opacity .62s ease,transform .62s cubic-bezier(.2,.7,.25,1);transition-delay:var(--reveal-delay,0ms);will-change:opacity,transform}
+.scroll-reveal.is-visible{opacity:1;transform:translate3d(0,0,0)}
+.services .scroll-reveal{transition-duration:.55s}
+@media(max-width:760px){.scroll-reveal{transform:translate3d(0,16px,0);transition-duration:.48s}}
+@media(prefers-reduced-motion:reduce){.scroll-reveal,.scroll-reveal.is-visible{opacity:1;transform:none;transition:none;will-change:auto}}
