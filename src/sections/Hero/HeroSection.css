@@ -1,0 +1,38 @@
+.hero{background:#fff;color:#102033;padding:75px 0 68px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:65px;align-items:center}
+.hero-side{padding:30px 0 30px 30px;border-left:3px solid #dfcaa4}
+.hero-side>span{font-size:10px;letter-spacing:2.3px;font-weight:800;color:#6b7886}
+.hero-side p{font:500 clamp(20px,2.4vw,28px)/1.45 Manrope;color:#102033;margin:20px 0}
+.hero-side strong{color:#a58d64}
+.hero-rule{width:80px;height:2px;background:#dfcaa4}
+@media(max-width:760px){.hero{padding:53px 0 45px}
+.hero-grid{grid-template-columns:1fr;gap:27px}
+.hero-side{padding:18px 0 18px 20px}
+.hero-side p{font-size:21px;margin:12px 0}}
+.hero{position:relative;overflow:hidden;padding:76px 0 82px;background:radial-gradient(ellipse at 78% 45%,#d8c39a38 0,transparent 42%),linear-gradient(115deg,#fff 0%,#f4f2ed 100%)}
+.hero-grid{grid-template-columns:1.08fr .92fr;gap:56px}
+.hero h1{font-size:clamp(42px,5vw,66px);max-width:720px}
+.hero-side{border:0;position:relative;min-height:330px;display:flex;flex-direction:column;justify-content:center;padding:42px 36px;background:linear-gradient(145deg,#071b31,#102c49 72%,#1a3550);border-radius:3px;overflow:hidden;box-shadow:0 24px 55px #071b3120}
+.hero-side:before{content:"";position:absolute;width:360px;height:360px;right:-110px;top:-110px;border:1px solid #d8c39a35;border-radius:50%;box-shadow:0 0 0 34px #d8c39a0b,0 0 0 70px #d8c39a08}
+.hero-side:after{content:"";position:absolute;inset:auto -40px -70px auto;width:260px;height:260px;background:radial-gradient(circle,#d8c39a28,transparent 68%)}
+.hero-side>span{color:#e3d1ae;position:relative;z-index:1}
+.hero-side p{font-size:clamp(24px,2.7vw,34px);color:#fff;position:relative;z-index:1}
+.hero-side strong{color:#e3d1ae}
+.hero-rule{position:relative;z-index:1}
+@media(max-width:760px){.hero{padding:48px 0 52px}
+.hero-grid{grid-template-columns:1fr;gap:30px}
+.hero h1{font-size:clamp(36px,9vw,46px);letter-spacing:-1.7px;line-height:1.08;margin:18px 0 15px}
+.hero-side{min-height:210px;padding:28px 24px}
+.hero-side p{font-size:23px}}
+.hero-side:after{
+  content:"";position:absolute;display:block;pointer-events:none;
+  width:clamp(220px,34vw,440px);height:clamp(250px,38vw,500px);
+  right:-95px;bottom:-120px;top:auto;
+  background-color:#d8c39a;
+  -webkit-mask:url('/sonnar-simbolo-mask.png') center/contain no-repeat;
+  mask:url('/sonnar-simbolo-mask.png') center/contain no-repeat;
+  opacity:.13;box-shadow:none;border:0;border-radius:0;
+}
+.hero-side:after{right:-48px;bottom:-85px;opacity:.16;z-index:0}
+.hero-side>span,.hero-side p,.hero-rule{z-index:1}
+@media(max-width:760px){.hero-side:after{width:205px;height:230px;right:-38px;bottom:-72px;opacity:.13}}
