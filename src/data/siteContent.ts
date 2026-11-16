@@ -1,9 +1,9 @@
 export const services = [
-  { title: 'Geofonamento', description: 'Escuta técnica em tubulações pressurizadas para localizar possíveis vazamentos.' },
-  { title: 'Termografia', description: 'Leitura de diferenças de temperatura que ajudam a identificar sinais de umidade.' },
-  { title: 'Inspeção por câmera — Boroscopia', description: 'Visualização de áreas internas e pontos de difícil acesso.' },
-  { title: 'Teste de estanqueidade', description: 'Verificação de possíveis perdas em trechos delimitados da instalação.' },
-  { title: 'Investigação com traçador', description: 'Acompanhamento do percurso da água para investigar pontos de passagem.' },
+  { title: 'Geofonamento', description: 'Investigamos os ruídos em tubulações pressurizadas para localizar vazamentos.' },
+  { title: 'Termografia', description: 'Analisamos diferenças de temperatura que ajudam a localizar sinais associados a vazamentos e umidade.' },
+  { title: 'Inspeção por câmera — Boroscopia', description: 'Inspecionamos o interior de tubulações e pontos de difícil acesso para identificar problemas.' },
+  { title: 'Teste de estanqueidade', description: 'Testamos trechos da instalação para verificar se há perda de água.' },
+  { title: 'Investigação com traçador', description: 'Utilizamos traçador para acompanhar o percurso da água e identificar pontos de passagem.' },
 ] as const
 
 export const steps = [

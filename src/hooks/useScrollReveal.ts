@@ -13,13 +13,6 @@ export function useScrollReveal() {
     if (!('IntersectionObserver' in window)) return
 
     const elements = Array.from(document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR))
-    elements.forEach((element, index) => {
-      element.classList.add('scroll-reveal')
-      if (element.matches('.services article')) {
-        element.style.setProperty('--reveal-delay', `${(index % 5) * 75}ms`)
-      }
-    })
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -27,9 +20,13 @@ export function useScrollReveal() {
           observer.unobserve(entry.target)
         }
       })
-    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' })
+    }, { threshold: 0.05, rootMargin: '0px' })
 
-    elements.forEach((element) => observer.observe(element))
+    elements.forEach((element) => {
+      element.classList.add('scroll-reveal')
+      observer.observe(element)
+    })
+
     return () => observer.disconnect()
   }, [])
 }

@@ -1,52 +1,27 @@
-.diagnosis{background:#fff;padding:78px 0}
-.diagnosis-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:65px;align-items:center}
-.diagnosis-image{padding:18px;background:#f7f7f5;border:1px solid #e4e6e8}
-.diagnosis-image img{width:100%;height:260px;object-fit:contain;display:block}
-.diagnosis-image small{display:block;font-size:10px;line-height:1.5;color:#75808b;margin-top:8px}
-.diagnosis p{color:#5e6b79;font-size:15px;line-height:1.7}
-@media(max-width:760px){.diagnosis-grid{grid-template-columns:1fr;gap:27px}
-.diagnosis{padding:58px 0}
-.diagnosis-image img{height:210px}
-.diagnosis h2{font-size:31px}}
-.diagnosis{background:linear-gradient(120deg,#071b31,#102b46);color:#fff;position:relative;overflow:hidden}
-.diagnosis:after{content:"";position:absolute;right:-150px;bottom:-210px;width:480px;height:480px;border:1px solid #d8c39a25;border-radius:50%;box-shadow:0 0 0 42px #d8c39a08,0 0 0 84px #d8c39a06;pointer-events:none}
-.diagnosis h2{color:#fff}
-.diagnosis p{color:#d3dce5;font-size:16px}
+.diagnosis{background:linear-gradient(120deg,#071b31,#102b46);color:#fff;position:relative;overflow:hidden;padding:78px 0}
+.diagnosis-grid{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);grid-template-areas:"visual copy" "visual deliverables" "visual note";column-gap:clamp(32px,5vw,64px);row-gap:14px;align-items:start}
+.diagnosis-copy{grid-area:copy;align-self:end;position:relative;z-index:1}
+.diagnosis h2{color:#fff;margin:14px 0 16px}
+.diagnosis-copy>p{color:#d3dce5;font-size:17px;line-height:1.65;margin:0}
 .diagnosis .eyebrow{color:#e0cda8}
-.diagnosis-image{background:linear-gradient(145deg,#f6f3ed,#e8e5dd);border:1px solid #d9c9a8;border-radius:5px;padding:26px;box-shadow:0 24px 55px #0003}
-.diagnosis-image img{display:none}
-.diagnosis-image small{font-size:12px;color:#5c6670}
-@media(max-width:760px){.diagnosis{padding:58px 0}
-.diagnosis-grid{grid-template-columns:1fr;gap:30px}
-.diagnosis h2{font-size:31px;line-height:1.15}
-.diagnosis p{font-size:15px}
-.diagnosis-image{padding:15px}
-.diagnosis-note{font-size:12px!important}}
-.diagnosis:after{
-  content:"";position:absolute;display:block;pointer-events:none;
-  width:clamp(220px,34vw,440px);height:clamp(250px,38vw,500px);
-  right:-95px;bottom:-120px;top:auto;
-  background-color:#d8c39a;
-  -webkit-mask:url('/sonnar-simbolo-mask.png') center/contain no-repeat;
-  mask:url('/sonnar-simbolo-mask.png') center/contain no-repeat;
-  opacity:.13;box-shadow:none;border:0;border-radius:0;
+.diagnosis-image{grid-area:visual;align-self:center;position:relative;z-index:1;margin:0;min-width:0}
+.diagnosis-image img{display:block;width:100%;height:auto;max-width:500px;object-fit:contain;margin-inline:auto}
+.diagnosis-image figcaption{font-size:13px;line-height:1.5;color:#d3dce5;text-align:center;margin-top:12px}
+.diagnosis .deliverables{grid-area:deliverables;position:relative;z-index:1;list-style:none;padding:0;margin:4px 0 0;display:grid;gap:14px}
+.diagnosis .deliverables li{display:flex;align-items:flex-start;gap:12px;color:#f4f6f8;font-size:16px;line-height:1.5;font-weight:600}
+.diagnosis .deliverables svg{width:21px;height:21px;color:#dfc99e;flex:none;margin-top:1px}
+.diagnosis-note{grid-area:note;position:relative;z-index:1;color:#e0e6ed;background:#ffffff0b;border-left:3px solid #d8c39a;padding:14px 16px;margin:22px 0 0;font-size:15px;line-height:1.65}
+.diagnosis:after{content:"";position:absolute;right:-90px;bottom:-135px;width:clamp(220px,34vw,440px);height:clamp(250px,38vw,500px);background-color:#fff;-webkit-mask:url('/sonnar-simbolo-mask.png') center/contain no-repeat;mask:url('/sonnar-simbolo-mask.png') center/contain no-repeat;opacity:.075;pointer-events:none}
+@media(max-width:760px){
+ .diagnosis{padding:58px 0}
+ .diagnosis-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"copy" "visual" "deliverables" "note";gap:18px}
+ .diagnosis h2{font-size:clamp(27px,7.2vw,32px);line-height:1.15}
+ .diagnosis-copy>p{font-size:16px;line-height:1.6}
+ .diagnosis-image{width:100%;padding-inline:2px}
+ .diagnosis-image img{width:100%;max-width:500px}
+ .diagnosis-image figcaption{font-size:13px;margin-top:10px}
+ .diagnosis .deliverables{gap:12px;margin-top:0}
+ .diagnosis .deliverables li{font-size:15px}
+ .diagnosis-note{font-size:14px;margin-top:22px;padding:13px 14px}
+ .diagnosis:after{width:220px;height:250px;right:-70px;bottom:-105px}
 }
-.diagnosis:after{right:-90px;bottom:-135px;background-color:#fff;opacity:.075}
-@media(max-width:760px){.diagnosis:after{width:230px;height:260px;right:-75px;bottom:-105px}}
-.diagnosis-image{position:relative;z-index:1;background:linear-gradient(145deg,#fbfaf7 0%,#eee8dc 100%);color:#102033;border:1px solid #d9c9a8;border-radius:7px;padding:24px;min-height:270px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 18px 42px #0002}
-.report-sheet{position:relative;display:flex;flex-direction:column;gap:12px;color:#102033}
-.report-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #d6c8ad;color:#102033}
-.report-head b{font:800 17px Manrope,sans-serif;letter-spacing:2px;color:#102033}
-.report-head span{font-size:10px;letter-spacing:1.1px;font-weight:800;color:#8c754f;text-align:right}
-.report-line{height:7px;width:72%;border-radius:10px;background:#d9dce0}
-.report-line.wide{width:100%}
-.report-line.short{width:48%}
-.report-photo{height:88px;border:1px dashed #b9aa8d;border-radius:4px;background:linear-gradient(135deg,#f1eee7,#e4e0d6);display:flex;align-items:center;justify-content:center;gap:10px;color:#536174}
-.report-photo svg{width:25px;height:25px;color:#987f53}
-.report-photo span{font-size:10px;letter-spacing:1px;font-weight:800}
-.report-stamp{align-self:flex-end;border:1px solid #ad956b;color:#806b47;border-radius:3px;padding:5px 9px;font-size:9px;font-weight:800;letter-spacing:1px}
-.diagnosis-image small{display:block;font-size:12px;line-height:1.5;color:#5c6670;margin-top:14px}
-@media(max-width:760px){.diagnosis-image{min-height:250px;padding:20px}
-.report-head b{font-size:16px}
-.report-head span{font-size:9px}
-.report-photo{height:76px}}

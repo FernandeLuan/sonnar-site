@@ -1,2 +1,36 @@
 import { Camera, ClipboardCheck, ShieldCheck, Target } from 'lucide-react'
-export default function DiagnosisSection(){return <section className="diagnosis"><div className="container diagnosis-grid"><div className="diagnosis-image"><div className="report-sheet"><div className="report-head"><b>SONNAR</b><span>DIAGNÓSTICO TÉCNICO</span></div><div className="report-line wide"/><div className="report-line"/><div className="report-photo"><ClipboardCheck/><span>REGISTROS DA INSPEÇÃO</span></div><div className="report-line wide"/><div className="report-line short"/><div className="report-stamp">ANÁLISE TÉCNICA</div></div><small>Representação ilustrativa de um diagnóstico técnico</small></div><div><div className="eyebrow">O QUE VOCÊ RECEBE</div><h2>A origem do vazamento e a solução para o reparo</h2><p>O diagnóstico técnico apresenta os testes realizados, os resultados encontrados e o que precisa ser feito para resolver o vazamento.</p><ul className="deliverables"><li><Target/>Origem identificada do vazamento</li><li><ClipboardCheck/>Testes e resultados da inspeção</li><li><Camera/>Registros fotográficos</li><li><ShieldCheck/>Solução indicada para o reparo</li></ul><p className="diagnosis-note">Quando a investigação não for conclusiva, o diagnóstico apresenta os resultados, as limitações e os próximos testes necessários, sem afirmar uma localização que não foi confirmada.</p></div></div></section>}
+
+export default function DiagnosisSection() {
+  return (
+    <section className="diagnosis" aria-labelledby="diagnosis-title">
+      <div className="container diagnosis-grid">
+        <div className="diagnosis-copy">
+          <div className="eyebrow">O QUE VOCÊ RECEBE</div>
+          <h2 id="diagnosis-title">A origem do vazamento e a solução para o reparo</h2>
+          <p>O diagnóstico técnico apresenta os testes realizados, os resultados encontrados e o que precisa ser feito para resolver o vazamento.</p>
+        </div>
+
+        <figure className="diagnosis-image">
+          <img
+            src="./sonnar-diagnostico-ilustracao.png"
+            alt="Ilustração do diagnóstico técnico da SONNAR, com investigação, conclusão técnica e solução para o reparo"
+            width="1600"
+            height="1600"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Representação ilustrativa do diagnóstico técnico</figcaption>
+        </figure>
+
+        <ul className="deliverables" aria-label="Entregáveis do diagnóstico técnico">
+          <li><Target aria-hidden="true"/>Origem identificada do vazamento</li>
+          <li><ClipboardCheck aria-hidden="true"/>Testes e resultados da inspeção</li>
+          <li><Camera aria-hidden="true"/>Registros fotográficos</li>
+          <li><ShieldCheck aria-hidden="true"/>Solução indicada para o reparo</li>
+        </ul>
+
+        <p className="diagnosis-note">Quando os testes não permitirem confirmar a origem, apresentamos os resultados, as limitações e os próximos passos da investigação.</p>
+      </div>
+    </section>
+  )
+}
