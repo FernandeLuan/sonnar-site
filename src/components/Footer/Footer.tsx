@@ -1,4 +1,4 @@
-import {MapPin,Instagram,Mail,Phone} from 'lucide-react'
+import {MapPin,Instagram,Mail} from 'lucide-react'
 import styles from './Footer.module.css'
 const WA='https://wa.me/message/V2UGAYQJIJ77N1'
 function WhatsAppIcon(){return <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.7A13.2 13.2 0 0 0 4.7 22.7L2.8 29.5l7-1.8A13.2 13.2 0 1 0 16 2.7Zm0 24.1a10.8 10.8 0 0 1-5.5-1.5l-.4-.2L6 26.1l1.1-4-.3-.5A10.9 10.9 0 1 1 16 26.8Zm6-8.1c-.4-.2-2-.9-2.3-1.1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.6-2.6-1.7-1-.8-1.7-1.9-1.9-2.2-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.8-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.6.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.7-.5Z"/></svg>}
