@@ -1,43 +1,30 @@
-import {useEffect,type ReactNode} from 'react'
-import {ArrowRight,ClipboardCheck,Droplets,MapPin,ShieldCheck,Thermometer,Camera,Activity,Target} from 'lucide-react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-const WA='https://wa.me/message/V2UGAYQJIJ77N1'
-function WhatsAppIcon({size=20}:{size?:number}){return <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true" fill="currentColor"><path d="M16.02 2.67A13.24 13.24 0 0 0 4.66 22.72L2.8 29.5l6.95-1.82a13.25 13.25 0 1 0 6.27-25.01Zm0 24.12a10.85 10.85 0 0 1-5.53-1.51l-.4-.24-4.12 1.08 1.1-4.01-.26-.42a10.87 10.87 0 1 1 9.21 5.1Zm5.97-8.14c-.33-.16-1.94-.96-2.24-1.07-.3-.11-.52-.16-.74.16-.22.33-.85 1.07-1.04 1.29-.19.22-.38.25-.71.08-.33-.16-1.38-.51-2.63-1.62-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.66.15-.14.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.43-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.12-1.14 2.73s1.17 3.17 1.33 3.39c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.87.69.79.25 1.51.21 2.08.13.63-.09 1.94-.79 2.22-1.56.27-.77.27-1.42.19-1.56-.08-.14-.3-.22-.63-.38Z"/></svg>}
-function ContactLink({children}:{children:ReactNode}){return <a className="wa-link" href={WA} target="_blank" rel="noreferrer"><WhatsAppIcon size={22}/><span>{children}</span></a>}
-const services: [typeof Target,string,string][]=[
-[Target,'Geofonamento','Escuta técnica em tubulações pressurizadas para localizar possíveis vazamentos.'],
-[Thermometer,'Termografia','Leitura de diferenças de temperatura que ajudam a identificar sinais de umidade.'],
-[Camera,'Inspeção por câmera — Boroscopia','Visualização de áreas internas e pontos de difícil acesso.'],
-[Activity,'Teste de estanqueidade','Verificação de possíveis perdas em trechos delimitados da instalação.'],
-[Droplets,'Investigação com traçador','Acompanhamento do percurso da água para investigar pontos de passagem.']]
-const steps=[['01','Conte o que está acontecendo','Conversamos sobre os sinais percebidos e o histórico do problema.'],['02','Receba a proposta','Apresentamos o serviço, as condições e o valor antes da contratação.'],['03','Realizamos a investigação','Aplicamos os testes adequados para localizar a origem do vazamento.'],['04','Receba o diagnóstico técnico','Apresentamos os resultados e a solução indicada para o reparo.']]
-const values=[['Cuidado com as pessoas e o patrimônio','Reconhecer a preocupação por trás de cada chamado e tratar cada ambiente com atenção, respeito e zelo.'],['Rigor técnico','Investigar com método, atenção e responsabilidade, sustentando cada diagnóstico nos testes realizados e nas evidências encontradas.'],['Integridade','Agir com honestidade em cada orientação, apresentar os resultados com clareza e assumir compromissos que possam ser cumpridos.'],['Respeito ao cliente','Valorizar seu tempo, seu investimento e sua privacidade, com pontualidade, discrição e atenção durante todo o atendimento.'],['Excelência em cada detalhe','Expressar qualidade na apresentação, na comunicação, na organização e na execução do serviço, do primeiro contato à entrega do diagnóstico técnico.']]
-export default function App(){
- useEffect(()=>{
-  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if(reduceMotion)return
-  const selector='.hero-grid > div, .light .container > .eyebrow, .heading, .services article, .service-contact, .diagnosis-grid > *, .steps article, .repair, .about-grid > *, .coverage-grid > *, .contact-grid > *'
-  const elements=Array.from(document.querySelectorAll<HTMLElement>(selector))
-  if(!('IntersectionObserver' in window))return
-  elements.forEach((element,index)=>{
-   element.classList.add('scroll-reveal')
-   if(element.matches('.services article'))element.style.setProperty('--reveal-delay',(index%5)*75+'ms')
-  })
-  const observer=new IntersectionObserver(entries=>{
-   entries.forEach(entry=>{
-    if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}
-   })
-  },{threshold:0.12,rootMargin:'0px 0px -36px 0px'})
-  elements.forEach(element=>observer.observe(element))
-  return()=>observer.disconnect()
- },[])
- return <div className="site-shell"><Header/><main>
-<section className="hero" id="inicio"><div className="container hero-grid"><div><div className="eyebrow">CAÇA VAZAMENTOS · BLUMENAU E REGIÃO</div><h1>Manchas de umidade ou conta de água acima do normal?</h1><p className="lead">Localizamos a origem exata do vazamento com tecnologia e precisão, evitando quebras desnecessárias.</p><ContactLink>Fale com a SONNAR (47) 98890-1278</ContactLink><p className="location"><MapPin/>Empresas, condomínios e residências em Blumenau, Vale do Itajaí e litoral.</p></div><div className="hero-side"><span>SONNAR CAÇA VAZAMENTOS</span><p>Precisão que localiza,<br/><strong>economia que resolve</strong></p><div className="hero-rule"/></div></div></section>
-<section className="light section" id="servicos"><div className="container"><div className="eyebrow dark">SERVIÇOS</div><div className="heading"><h2>Tecnologia e precisão para localizar a origem do vazamento</h2><p>Selecionamos os métodos adequados para cada situação e as características do imóvel.</p></div><div className="services">{services.map(([Icon,title,text])=><article key={title}><div className="service-heading"><Icon/><h3>{title}</h3></div><p>{text}</p></article>)}</div><div className="service-contact"><span>Quer conversar sobre o seu caso?</span><ContactLink>(47) 98890-1278</ContactLink></div></div></section>
-<section className="diagnosis"><div className="container diagnosis-grid"><div className="diagnosis-image"><div className="report-sheet"><div className="report-head"><b>SONNAR</b><span>DIAGNÓSTICO TÉCNICO</span></div><div className="report-line wide"/><div className="report-line"/><div className="report-photo"><ClipboardCheck/><span>REGISTROS DA INSPEÇÃO</span></div><div className="report-line wide"/><div className="report-line short"/><div className="report-stamp">ANÁLISE TÉCNICA</div></div><small>Representação ilustrativa de um diagnóstico técnico</small></div><div><div className="eyebrow">O QUE VOCÊ RECEBE</div><h2>A origem do vazamento e a solução para o reparo</h2><p>O diagnóstico técnico apresenta os testes realizados, os resultados encontrados e o que precisa ser feito para resolver o vazamento.</p><ul className="deliverables"><li><Target/>Origem identificada do vazamento</li><li><ClipboardCheck/>Testes e resultados da inspeção</li><li><Camera/>Registros fotográficos</li><li><ShieldCheck/>Solução indicada para o reparo</li></ul><p className="diagnosis-note">Quando a investigação não for conclusiva, o diagnóstico apresenta os resultados, as limitações e os próximos testes necessários, sem afirmar uma localização que não foi confirmada.</p></div></div></section>
-<section className="light section" id="processo"><div className="container"><div className="eyebrow dark">COMO FUNCIONA</div><div className="heading"><h2>Um processo claro, do contato ao diagnóstico</h2><p>Escopo e condições apresentados antes da contratação.</p></div><div className="steps">{steps.map(([n,t,d])=><article key={n}><span>{n}</span><div><h3>{t}</h3><p>{d}</p></div></article>)}</div><div className="repair"><ShieldCheck/><p><b>Investigação e diagnóstico técnico</b><br/>O serviço compreende a inspeção, os testes e a análise dos resultados, com indicação da intervenção recomendada. <strong>A execução do reparo não faz parte do serviço da SONNAR.</strong></p></div></div></section>
-<section className="about" id="sobre"><div className="container about-grid"><div><div className="eyebrow">SOBRE A SONNAR</div><h2>Precisão técnica e cuidado com cada ambiente</h2><p>A SONNAR reúne tecnologia e métodos profissionais de inspeção para localizar a origem de vazamentos em empresas, condomínios e residências.</p><p>Atendimento com rigor técnico, respeito ao ambiente e atenção às preocupações de cada cliente.</p></div><div className="about-more"><details><summary>Conheça nossa missão e visão</summary><article><small>MISSÃO</small><p>Identificar a origem dos vazamentos com tecnologia e precisão, preservando o patrimônio e oferecendo a cada cliente o cuidado e a atenção que sua situação exige.</p></article><article><small>VISÃO</small><p>Elevar o padrão do caça vazamentos no Vale do Itajaí e no litoral, fazendo da precisão técnica e do cuidado com cada cliente uma experiência que as pessoas façam questão de recomendar.</p></article></details><details><summary>Conheça nossos valores</summary>{values.map(([t,d])=><article key={t}><b>{t}</b><p>{d}</p></article>)}</details></div></div></section>
-<section className="coverage"><div className="container coverage-grid"><div><div className="eyebrow">ONDE ATENDEMOS</div><h2>Do Vale do Itajaí ao litoral, <em>onde você estiver</em></h2><p>Com base em Blumenau, a SONNAR vai até empresas, condomínios e residências para realizar a inspeção.</p></div><div className="coverage-card"><MapPin/><b>Blumenau · Santa Catarina</b><span>Vale do Itajaí · Litoral</span><a href={WA} target="_blank" rel="noreferrer">Consultar atendimento na minha região <ArrowRight/></a></div></div></section>
-<section className="light section contact" id="contato"><div className="container contact-grid"><div className="contact-cta"><div className="eyebrow">FALE COM A SONNAR</div><h2>Suspeita de vazamento?<br/><em>Vamos investigar!</em></h2><p>Conte o que está acontecendo e converse com nossa equipe sobre a investigação</p><ContactLink>Fale com a SONNAR pelo WhatsApp</ContactLink></div></div></section>
-</main><Footer/></div>}
+import HeroSection from './sections/Hero/HeroSection'
+import ServicesSection from './sections/Services/ServicesSection'
+import DiagnosisSection from './sections/Diagnosis/DiagnosisSection'
+import ProcessSection from './sections/Process/ProcessSection'
+import AboutSection from './sections/About/AboutSection'
+import CoverageSection from './sections/Coverage/CoverageSection'
+import ContactSection from './sections/Contact/ContactSection'
+import { useScrollReveal } from './hooks/useScrollReveal'
+
+export default function App() {
+  useScrollReveal()
+
+  return (
+    <div className="site-shell">
+      <Header />
+      <main>
+        <HeroSection />
+        <ServicesSection />
+        <DiagnosisSection />
+        <ProcessSection />
+        <AboutSection />
+        <CoverageSection />
+        <ContactSection />
+      </main>
+      <Footer />
+    </div>
+  )
+}

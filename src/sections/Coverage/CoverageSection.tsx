@@ -1,0 +1,3 @@
+import { ArrowRight, MapPin } from 'lucide-react'
+const WA='https://wa.me/message/V2UGAYQJIJ77N1'
+export default function CoverageSection(){return <section className="coverage"><div className="container coverage-grid"><div><div className="eyebrow">ONDE ATENDEMOS</div><h2>Do Vale do Itajaí ao litoral, <em>onde você estiver</em></h2><p>Com base em Blumenau, a SONNAR vai até empresas, condomínios e residências para realizar a inspeção.</p></div><div className="coverage-card"><MapPin/><b>Blumenau · Santa Catarina</b><span>Vale do Itajaí · Litoral</span><a href={WA} target="_blank" rel="noreferrer">Consultar atendimento na minha região <ArrowRight/></a></div></div></section>}
