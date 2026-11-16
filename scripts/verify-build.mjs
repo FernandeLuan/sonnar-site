@@ -14,7 +14,7 @@ const checks = [
   ['título', /<title>SONNAR/.test(html)],
   ['descrição', /name="description"/.test(html)],
   ['canonical do domínio oficial', /canonical" href="https:\/\/www\.sonnarcacavazamentos\.com\.br\//.test(html)],
-  ['favicon SVG', html.includes('rel="icon"') && html.includes('type="image/svg+xml"') && html.includes('href="/favicon.svg"')],
+  ['favicon SVG', /<link\b(?=[^>]*rel="icon")(?=[^>]*type="image\/svg\+xml")(?=[^>]*href="(?:\.\/|\/)?favicon\.svg")[^>]*>/.test(html)],
 ]
 const failed = checks.filter(([, passed]) => !passed).map(([name]) => name)
 if (failed.length) {
