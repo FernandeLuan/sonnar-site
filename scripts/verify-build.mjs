@@ -2,7 +2,7 @@ import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative } from 'node:path'
 
 const root = 'dist'
-const required = ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'sonnar-logo.svg', 'sonnar-logo-dark.webp']
+const required = ['index.html', '404.html', 'robots.txt', 'sitemap.xml', 'sonnar-logo.svg', 'sonnar-logo-dark.webp', 'favicon.svg']
 const missing = required.filter((file) => !existsSync(join(root, file)))
 if (missing.length) {
   console.error('Arquivos ausentes no build:', missing.join(', '))
@@ -14,7 +14,7 @@ const checks = [
   ['título', /<title>SONNAR/.test(html)],
   ['descrição', /name="description"/.test(html)],
   ['canonical do domínio oficial', /canonical" href="https:\/\/www\.sonnarcacavazamentos\.com\.br\//.test(html)],
-  ['favicon WebP', /rel="icon" type="image\/webp"/.test(html)],
+  ['favicon SVG', /rel="icon" type="image\/svg\+xml" href="\/favicon\.svg"/.test(html)],
 ]
 const failed = checks.filter(([, passed]) => !passed).map(([name]) => name)
 if (failed.length) {
