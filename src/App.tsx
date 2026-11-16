@@ -1,5 +1,5 @@
 import {useEffect,type ReactNode} from 'react'
-import {ArrowRight,ClipboardCheck,Droplets,Instagram,Mail,MapPin,Phone,ShieldCheck,Thermometer,Camera,Activity,Target} from 'lucide-react'
+import {ArrowRight,ClipboardCheck,Droplets,MapPin,ShieldCheck,Thermometer,Camera,Activity,Target} from 'lucide-react'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 const WA='https://wa.me/message/V2UGAYQJIJ77N1'
